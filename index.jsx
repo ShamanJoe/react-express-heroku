@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom"
 import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
+import {questions} from "./questions";
 
 
 function Frontpage() {
@@ -19,9 +20,13 @@ function Questions(){
     </div>
 }
 
-function DummyLink(){
+
+function DummyLink() {
     return <div>
-        <h1>DummyPage</h1>
+        <h1>List all questions</h1>
+        {questions.map(q => <div key={q.id}>
+            <h2>({q.id}) {q.question}</h2>
+        </div>)}
     </div>
 }
 
@@ -30,7 +35,7 @@ function Application() {
         <Routes>
             <Route path={"/"} element={<Frontpage/>}/>
             <Route path={"/questions"} element={<Questions/>}/>
-            <Route path={"/questions/new"} element={<DummyLink/>}/>
+            <Route path={"/questions/new"} element={<DummyLink questions={questions}/>}/>
         </Routes>
     </BrowserRouter>
 }
