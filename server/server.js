@@ -1,4 +1,5 @@
 import express from "express";
+import {questions} from "../questions";
 
 const app = express();
 
@@ -7,7 +8,8 @@ const server = app.listen(process.env.PORT || 3000, () => {
 });
 
 app.get("/api/question", (req,res) => {
-    res.json()
+    const {id, question, description} = questions();
+    res.json({id,question,description})
 });
 app.post("/api/question", (req,res) => {
 });

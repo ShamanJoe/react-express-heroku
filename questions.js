@@ -1,6 +1,20 @@
-export const randomElement = questions[Math.floor(Math.random() * questions.length)];
-
-export const questions = [
+interface Question {
+    id: number;
+    question: string;
+    description: string | null;
+    //answers: Record<answer, string | null>;
+    //multiple_correct_answers: "true" | "false";
+    //correct_answers: Record<answer_correct, "true" | "false">;
+    explanation: string | null;
+    tip: string | null;
+    tags: { name: string }[];
+    category: string;
+    difficulty: "Easy";
+}
+export function randomQuestion(): Question {
+    return Questions[Math.trunc(Math.random() * Questions.length)];
+}
+export const Questions: Question[] = [
     {
         "id": 1,
         "question": "How to delete a directory in Linux?",
