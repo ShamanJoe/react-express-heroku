@@ -1,3 +1,5 @@
+export const randomElement = questions[Math.floor(Math.random() * questions.length)];
+
 export const questions = [
     {
         "id": 1,
